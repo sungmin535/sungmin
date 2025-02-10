@@ -46,7 +46,7 @@ library ieee;
 entity top_basys3 is
 	port(
 		-- Switches
-		sw		:	in  std_logic_vector(8 downto 0);
+		sw		:	in  std_logic_vector(15 downto 0);
 		
 		-- LEDs
 		led	    :	out	std_logic_vector(15 downto 0)
@@ -75,9 +75,9 @@ architecture top_basys3_arch of top_basys3 is
   
 begin
 	-- PORT MAPS --------------------
-    A_internal   <= sw(3 downto 0);
-    B_internal   <= sw(7 downto 4);
-    Cin_internal <= sw(8);
+    A_internal   <= sw(4 downto 1);
+    B_internal   <= sw(15 downto 12);
+    Cin_internal <= sw(0);
     U_ripple_adder: ripple_adder
         port map (
             A    => A_internal,
